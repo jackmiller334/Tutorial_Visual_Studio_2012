@@ -28,7 +28,7 @@
 //	os << "m_Name: " << aCritter.m_Name;
 //	return os;
 //}
-///*this function overloads the << operator so that when i send a critter object with the << to cout,
+//*this function overloads the << operator so that when i send a critter object with the << to cout,
 //the data memeber m_Name is displayed. Essentially, the function allows me to easily display Critter Objects.
 //*/
 //
@@ -231,14 +231,7 @@
 //
 //		
 //		//while there is a next player in the list, move along to the next player, and check again.
-//	//	while(pIter->getNext() != 0)
-//		//{
-//		//	pIter = pIter->getNext();
-//		//}
-//		//pIter->setNext(pNewPlayer);
-//		//m_pTail = pIter;
-//		//}
-//	//}
+//	
 //		Player* prevIter = m_pHead;
 //		while(prevIter->getNext() != 0)
 //		{
@@ -409,16 +402,9 @@
 //
 //void Jack::testCopy()
 //{
-//
 //	Jack jack1("Jack1",19,6.3);
 //	Jack jack2("Jack2",20,6.2);
-//
-//
-//
-//
 //}
-//
-//
 //
 //
 //

@@ -52,7 +52,6 @@
 //
 //
 //
-//
 //	testDestructor();
 //	cout << endl;
 //	Crit crit("Poochie",5);

@@ -37,11 +37,33 @@ void Enemy::punch()
 	cout << "THE ENEMY PUNCHES YOU FOR " << m_Damage << " DAMAGE POINTS! \n";
 }
 
+Enemy& Enemy::operator=(const Enemy& cEnemy)
+{
+	m_health = cEnemy.m_health;
+	m_Damage = cEnemy.m_Damage;
+	return *this;
+}
 
 
-/*this calls the base class constructor and sets damage. 
-The base class constructor sets the damage argument as its damage.
-This call to the base class constructor means that our derived class does the same thing*/
+
+
+/*
+This calls the base class constructor and sets damage. 
+
+Here’s what actually happens when Boss is instantiated:
+
+Memory for Boss is set aside (enough for both the Base and Derived portions).
+The appropriate Derived constructor is called
+The Base object is constructed first using the appropriate Base constructor
+The initialization list initializes variables
+The body of the constructor executes
+Control is returned to the caller
+The only real difference between this case and the non-inherited case is that 
+before the Derived constructor can do anything substantial, the Base constructor is called first. 
+The Base constructor sets up the Base portion of the object, control is returned to the Derived constructor,
+and the Derived constructor is allowed to finish up it’s job.
+*/
+
 Boss::Boss(int damage ) : Enemy(damage)
 {
     m_DamageMultiplier = 3;
@@ -69,8 +91,15 @@ void Boss::punch()
 
 
 //this method calls the enemy attack function, but also adds an extra part where the boss laughs at you.
-void Boss::attack()
+void Boss::attack() const
 {
 	Enemy::attack(); // you can explicitly call a base class member function from any function in a derived class.
 	cout << " And laughs at you! " << endl;
+}
+
+
+Boss& Boss::operator=(const Boss& cBoss)
+{
+	Enemy::operator=(cBoss);
+	m_DamageMultiplier = cBoss.m_DamageMultiplier;
 }
